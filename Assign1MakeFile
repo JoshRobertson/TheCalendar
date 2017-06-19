@@ -1,0 +1,17 @@
+main: Main.o Table.o Calendar.o HolidayInfo.o ConsoleData.o
+	gcc -o main Main.o Table.o Calendar.o HolidayInfo.o ConsoleData.o
+
+Main.o: Main.c Table.h Calendar.h ConsoleData.h
+	gcc -c Main.c
+
+Table.o: Table.c BoxDrawChars.h
+	gcc -c Table.c -std=c99
+
+Calendar.o: Calendar.c HolidayInfo.h
+	gcc -c Calendar.c -std=c99
+
+HolidayInfo.o: HolidayInfo.c
+	gcc -c HolidayInfo.c 
+
+ConsoleData.o: ConsoleData.c
+	gcc -c ConsoleData.c
